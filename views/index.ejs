@@ -7,11 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/form" method="post">
-        <input type="email" name="email" id="email" placeholder="email" required><br>
-        <input type="text" name="nome" id="nome" placeholder="nome" required><br>
-        <input type="number" name="pontos" id="pontos" placeholder="pontos" required><br>
-        <button type="button" onclick="validarCampos_formulario()" id="btnSubmit"> Enviar</button>
+    <form action="/form" method="post" > <!-- onsubmit="validarCampos_formulario(this); return false"-->
+        <input type="email" name="email" id="email" placeholder="email" value=" <%= email %>"><br>
+        <input type="text" name="nome" id="nome" placeholder="nome" value=" <%= nome %>"><br>
+        <input type="number" name="pontos" id="pontos" placeholder="pontos" value=" <%= pontos %>"><br>
+        <button type="submit"  id="btnSubmit"> Enviar</button>
 
     </form>
     
@@ -22,12 +22,20 @@
         var email = document.getElementById('email').value
         var nome = document.getElementById('nome').value
         var pontos = document.getElementById('pontos').value
+        
 
         if(email == "" || nome == "" || pontos == ""){
-            alert(' Preencha todos os campos!')
+            
+            alert('Preencha todos os campos')
+            
+            
+            
         }else{
-           var btn= document.getElementById('btnSubmit');  
-           btn.submit()          
+            
+           alert(' Dados enviados') 
+           console.log(email, nome , pontos)  
+           
+               
         }
     }
 </script>
